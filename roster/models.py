@@ -17,3 +17,25 @@ class User(AbstractUser):
         occupation, create = Occupation.objects.get_or_create(name=occupation_name)
         self.occupation = occupation
         self.save()
+
+
+class Task(models.Model):
+    PRIORITY_CHOICES = (
+        ("HIGH", "high"),
+        ("MEDIUM", "medium"),
+        ("LOW", "low"),
+    )
+
+    title = models.CharField(max_length=30)
+    description = models.TextField()
+    tag = models.ForeignKey(Tag, on_delete=models.DO_NOTHING)
+    deadline = models.DateField()
+    is_completed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    priority = models.CharField(
+        max_length=10,
+        choices=PRIORITY_CHOICES,
+        default="LOW"
+    )
+
