@@ -51,7 +51,9 @@ class Task(models.Model):
     tag = models.ForeignKey(
         Tag,
         on_delete=models.DO_NOTHING,
-        related_name="tasks"
+        related_name="tasks",
+        null=True,
+        blank=True,
     )
     deadline = models.DateField()
     is_completed = models.BooleanField(default=False)
@@ -59,13 +61,18 @@ class Task(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="tasks"
+        related_name="tasks",
+        blank=True,
+        null=True,
     )
     priority = models.CharField(
         max_length=10,
         choices=PRIORITY_CHOICES,
         default="LOW"
     )
+
+    class Meta:
+        ordering = ("-created_at",)
 
     def __str__(self):
         return self.title
