@@ -10,9 +10,15 @@ class Tag(models.Model):
         related_name="tags"
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Occupation(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class User(AbstractUser):
@@ -28,6 +34,9 @@ class User(AbstractUser):
         occupation, create = Occupation.objects.get_or_create(name=occupation_name)
         self.occupation = occupation
         self.save()
+
+    def __str__(self):
+        return self.username
 
 
 class Task(models.Model):
@@ -57,3 +66,6 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default="LOW"
     )
+
+    def __str__(self):
+        return self.title
