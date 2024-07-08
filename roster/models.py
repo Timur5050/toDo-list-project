@@ -7,7 +7,9 @@ class Tag(models.Model):
     author = models.ForeignKey(
         "User",
         on_delete=models.CASCADE,
-        related_name="tags"
+        related_name="tags",
+        null=True,
+        blank=True,
     )
 
     def __str__(self):
