@@ -7,7 +7,7 @@
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'roster:main-page' %}">{{ user.username }}</a>
+        <a class="nav-link" href="{% url 'roster:user-info' username=user.username %}">{{ user.username }}</a>
       </li>
       <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
