@@ -37,10 +37,19 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ("title", "description", "tag", "deadline", "priority", )
+        fields = ("title", "description", "tag", "deadline", "priority",)
 
 
 class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
-        fields = ("name", )
+        fields = ("name",)
+
+
+class TaskSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "search by title"}),
+    )
