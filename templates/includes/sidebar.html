@@ -3,7 +3,13 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="{% url 'roster:main-page' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'roster:tags-list' %}">my tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'roster:task-list' %}">my tasks</a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
