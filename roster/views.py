@@ -18,7 +18,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "roster/index.html")
 
 
-class UserCreateView(LoginRequiredMixin, CreateView):
+class UserCreateView(CreateView):
     form_class = UserForm
     template_name = "roster/user_form.html"
     success_url = reverse_lazy("roster:main-page")
