@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="registration">
-  </form>
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value={{ object|yesno:"Update,Create" }}>
+</form>
+
 {% endblock %}
