@@ -1,12 +1,16 @@
+import datetime
+
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db import transaction
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import CreateView, ListView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
-from roster.forms import UserForm, TaskForm, TagForm
+from roster.forms import UserForm, TaskForm, TagForm, TaskSearchForm
 from roster.models import Task, User, Tag
 
 
@@ -14,7 +18,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "roster/index.html")
 
 
-class UserCreateView(CreateView):
+class UserCreateView(LoginRequiredMixin, CreateView):
     form_class = UserForm
     template_name = "roster/user_form.html"
     success_url = reverse_lazy("roster:main-page")
@@ -28,6 +32,7 @@ class UserCreateView(CreateView):
         return response
 
 
+@login_required
 def user_about(request: HttpRequest, username: str) -> HttpResponse:
     user = get_object_or_404(User, username=username)
     context = {
@@ -57,20 +62,35 @@ def tag_create(request: HttpRequest) -> HttpResponse:
             return redirect(reverse_lazy("roster:tags-list"))
 
 
+@login_required
 def tags_list(request: HttpRequest) -> HttpResponse:
     context = {
-        "tags_list": Tag.objects.filter(author=request.user)
+        "tags_list": Tag.objects.filter(author=request.user),
     }
     return render(request, "roster/tags_list.html", context=context)
 
 
+@login_required
 def tasks_list(request: HttpRequest) -> HttpResponse:
+    today = timezone.now().date()
+    task_title = request.GET.get("title")
+
     context = {
-        "task_list": Task.objects.filter(user=request.user)
+        # "task_list": Task.objects.filter(user=request.user),
+        "current_time": today,
+        "search_task": TaskSearchForm()
     }
+
+    queryset = Task.objects.filter(user=request.user)
+    if task_title:
+        queryset = queryset.filter(title__icontains=task_title)
+
+    context["task_list"] = queryset
+
     return render(request, "roster/task_list.html", context=context)
 
 
+@login_required
 def task_create_view(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":
         context = {
@@ -84,3 +104,22 @@ def task_create_view(request: HttpRequest) -> HttpResponse:
             task.user = request.user
             task.save()
             return redirect(reverse_lazy("roster:task-list"))
+
+
+@login_required
+def task_detail_view(request: HttpRequest, pk: int) -> HttpResponse:
+    context = {
+        "task": Task.objects.get(id=pk)
+    }
+    return render(request, "roster/task_detail.html", context=context)
+
+
+@login_required
+def task_completing_view(request: HttpRequest, pk=int) -> HttpResponse:
+    task = Task.objects.get(id=pk)
+    if task.is_completed:
+        task.is_completed = False
+    else:
+        task.is_completed = True
+    task.save()
+    return redirect(reverse("roster:task-list"))
