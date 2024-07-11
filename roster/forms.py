@@ -11,7 +11,8 @@ class UserForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
-            "occupation"
+            "occupation",
+            "email"
         )
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
