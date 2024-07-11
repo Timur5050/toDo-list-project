@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>your tags:</h3>
-<ul>
+<h3 class="my-4 text-center">Your Tags</h3>
+<ul class="list-group">
   {% for tag in tags_list %}
-  <li>
+  <li class="list-group-item tag-item">
     {{ tag.name }}
   </li>
   {% endfor %}
 </ul>
-<a href="{% url 'roster:tag-create' %}">create tag</a>
-
+<div class="text-center mt-4">
+  <a href="{% url 'roster:tag-create' %}" class="btn btn-primary">Create Tag</a>
+</div>
 {% endblock %}
