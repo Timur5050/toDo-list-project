@@ -2,5 +2,14 @@
 
 {% block content %}
 <h2>Your tasks:</h2>
+<ul>
+  {% for task in task_list %}
+  <li>
+    {{ task.title }}
+
+  </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'roster:task-create' %}">create task</a>
 
 {% endblock %}
