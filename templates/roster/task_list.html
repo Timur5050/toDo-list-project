@@ -1,15 +1,32 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 <h2>Your tasks:</h2>
+<form action="" method="get" class="form-inline">
+  {{ search_task|crispy }}
+  <input type="submit" value="🔍" class="btn btn-secondary">
+</form>
 <ul>
   {% for task in task_list %}
   <li>
-    {{ task.title }}
-
+    <a href="{% url 'roster:task-details' pk=task.id %}">{{ task.title }}</a>
+    deadline:
+    {% if task.deadline > current_time %}
+    <span class="before-deadline">{{ task.deadline }}</span>
+    {% else %}
+    <span class="after-deadline">{{ task.deadline }}</span>
+    {% endif %}
+    completed:
+    {% if task.is_completed %}
+    <span><a href="{% url 'roster:task-completing-change' pk=task.id %}"> ✓ </a></span>
+    {% else %}
+    <span><a href="{% url 'roster:task-completing-change' pk=task.id %}"> ✖ </a></span>
+    {% endif %}
+    <br> tag:
+    {{ task.tag.name }}
   </li>
   {% endfor %}
 </ul>
 <a href="{% url 'roster:task-create' %}">create task</a>
-
 {% endblock %}
