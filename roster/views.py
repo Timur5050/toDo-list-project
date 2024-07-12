@@ -1,12 +1,10 @@
 from django.core.paginator import Paginator
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db import transaction
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView
 from django.urls import reverse_lazy, reverse
 
 from roster.forms import UserForm, TaskForm, TagForm, TaskSearchForm
@@ -40,11 +38,6 @@ def user_about(request: HttpRequest, username: str) -> HttpResponse:
     return render(request, "roster/user_info.html", context=context)
 
 
-# class UserUpdateView(LoginRequiredMixin, UpdateView):
-#     model = User
-#     form_class = UserForm
-#     template_name = "roster/user_form.html"
-#     #success_url = reverse_lazy("roster:user-info", )
 @login_required
 def tag_create(request: HttpRequest) -> HttpResponse:
     context = {
