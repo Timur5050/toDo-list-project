@@ -19,7 +19,7 @@ Welcme to our Django-based application. This project is designed to manage tasks
 - Admin Interface: A robust admin panel for managing the application's data and configurations
 
 # Installation Instructions
-- git clome https://github.com/Timur5050/toDo-list-project.git
+- git clone https://github.com/Timur5050/toDo-list-project.git
 - cd toDo-list-project
 - python -m venv env
 - env\Scripts\activate or source env/bin/activate on mac
