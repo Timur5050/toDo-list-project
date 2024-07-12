@@ -1,5 +1,4 @@
-import datetime
-
+from django.core.paginator import Paginator
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -76,7 +75,6 @@ def tasks_list(request: HttpRequest) -> HttpResponse:
     task_title = request.GET.get("title")
 
     context = {
-        # "task_list": Task.objects.filter(user=request.user),
         "current_time": today,
         "search_task": TaskSearchForm()
     }
@@ -85,7 +83,11 @@ def tasks_list(request: HttpRequest) -> HttpResponse:
     if task_title:
         queryset = queryset.filter(title__icontains=task_title)
 
-    context["task_list"] = queryset
+    paginator = Paginator(queryset, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context["task_list"] = page_obj
 
     return render(request, "roster/task_list.html", context=context)
 
