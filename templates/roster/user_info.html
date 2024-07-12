@@ -2,22 +2,22 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h1>Hello, {{ user.first_name }}</h1>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Your Data:</h3>
-                    <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
-                    <p class="card-text"><strong>First Name:</strong> {{ user.first_name }}</p>
-                    <p class="card-text"><strong>Last Name:</strong> {{ user.last_name }}</p>
-                    <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-                    <p class="card-text"><strong>Occupation:</strong> {{ user.occupation.name }}</p>
-                </div>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1>Hello, {{ user.first_name }}</h1>
         </div>
+        <div class="card-body">
+          <h3 class="card-title">Your Data:</h3>
+          <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
+          <p class="card-text"><strong>First Name:</strong> {{ user.first_name }}</p>
+          <p class="card-text"><strong>Last Name:</strong> {{ user.last_name }}</p>
+          <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+          <p class="card-text"><strong>Occupation:</strong> {{ user.occupation.name }}</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
