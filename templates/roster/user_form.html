@@ -1,10 +1,27 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
+
 {% block content %}
-
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value={{ object|yesno:"Update,Create" }}>
-</form>
-
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="ca  rd">
+        <div class="card-header">
+          <h2>Registration</h2>
+        </div>
+        <div class="card-body">
+          <form action="" method="post" class="form-horizontal">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="form-group row">
+              <div class="col-sm-10 offset-sm-2">
+                <input type="submit" value="Create" class="btn btn-primary">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
