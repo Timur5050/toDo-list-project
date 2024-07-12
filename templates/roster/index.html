@@ -1,5 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>HELLO</h1>
+<div class="container mt-5 text-center">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to the ToDo List Management System</h1>
+    <p class="lead">Organize your tasks, set priorities, and meet your deadlines with ease. Join us to stay on top of your to-do list.</p>
+    <hr class="my-4">
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Easy Task Management</h5>
+          <p class="card-text">Create, edit, and delete tasks with a simple interface. Manage all your tasks in one place.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Set Priorities</h5>
+          <p class="card-text">Prioritize your tasks to focus on what's most important. Never miss a deadline again.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stay Organized</h5>
+          <p class="card-text">Use tags to categorize your tasks and keep your to-do list organized.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">What Our Users Say</h5>
+          <blockquote class="blockquote">
+            <p class="mb-0">"This ToDo List Management System has changed the way I organize my tasks. It's simple, yet powerful."</p>
+            <footer class="blockquote-footer mt-3">Jane Doe, <cite title="Source Title">Product Manager</cite></footer>
+          </blockquote>
+          <blockquote class="blockquote">
+            <p class="mb-0">"I love the priority setting feature. It helps me focus on what's important."</p>
+            <footer class="blockquote-footer mt-3">John Smith, <cite title="Source Title">Developer</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
