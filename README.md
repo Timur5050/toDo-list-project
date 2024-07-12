@@ -28,15 +28,15 @@ Welcme to our Django-based application. This project is designed to manage tasks
 - python manage.py runserver
 - go to http://127.0.0.1:8000/
 
-  # Usage Guide
-  - Main Page, URL: /, View: index. This is the main landing page of the application.
-  - User Registration, URL: /registration/, View: UserCreateView.as_view(). Allows users to register a new account.
-  - User Information, URL: /users/<str:username>/, View: user_about. Displays information about a specific user.
-  - Task List, URL: /tasks/, View: tasks_list. Displays a list of tasks, with pagination.
-  - Task Creation, URL: /tasks/create/, View: task_create_view. Allows users to create a new task.
-  - Task Details, URL: /tasks/<int:pk>/details/, View: task_detail_view. Displays the details of a specific task.
-  - Task Completion Status Change, URL: /tasks/<int:pk>/completing/, View: task_completing_view. Allows users to change the completion status of a specific task.
-  - Tags List, URL: /tags/, View: tags_list. Displays a list of tags.
-  - Tag Creation, URL: /tags/create/, View: tag_create. Allows users to create a new tag.
+# Usage Guide
+- Main Page, URL: /, View: index. This is the main landing page of the application.
+- User Registration, URL: /registration/, View: UserCreateView.as_view(). Allows users to register a new account.
+- User Information, URL: /users/<str:username>/, View: user_about. Displays information about a specific user.
+- Task List, URL: /tasks/, View: tasks_list. Displays a list of tasks, with pagination.
+- Task Creation, URL: /tasks/create/, View: task_create_view. Allows users to create a new task.
+- Task Details, URL: /tasks/<int:pk>/details/, View: task_detail_view. Displays the details of a specific task.
+- Task Completion Status Change, URL: /tasks/<int:pk>/completing/, View: task_completing_view. Allows users to change the completion status of a specific task.
+- Tags List, URL: /tags/, View: tags_list. Displays a list of tags.
+- Tag Creation, URL: /tags/create/, View: tag_create. Allows users to create a new tag.
 
 
