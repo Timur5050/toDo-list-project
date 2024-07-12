@@ -5,3 +5,179 @@
 .after-deadline {
     color: red;
 }
+
+.before-deadline {
+    color: green;
+    font-weight: bold;
+}
+
+.after-deadline {
+    color: red;
+    font-weight: bold;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+}
+
+.badge-success a,
+.badge-danger a {
+    color: white;
+    text-decoration: none;
+}
+
+.badge-success a:hover,
+.badge-danger a:hover {
+    text-decoration: underline;
+}
+
+/* style.css */
+
+body {
+    background-color: #f8f9fa;
+}
+
+h2 {
+    color: #343a40;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+.task-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #007bff;
+}
+
+.task-title:hover {
+    text-decoration: underline;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+}
+
+.before-deadline {
+    color: #28a745;
+}
+
+.after-deadline {
+    color: #dc3545;
+}
+
+.badge-success a,
+.badge-danger a {
+    color: white;
+    text-decoration: none;
+}
+
+.badge-success a:hover,
+.badge-danger a:hover {
+    text-decoration: underline;
+}
+
+.text-center {
+    text-align: center;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+h3 {
+    color: #343a40;
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+.tag-item {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #007bff;
+    text-align: center;
+}
+
+.tag-item:hover {
+    color: #0056b3;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.container {
+    padding-top: 30px;
+}
+
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
