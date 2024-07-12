@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>
+  {{ task.title }}
+</h3>
+<p>{{ task.description }}</p>
+<br>
+<p><a href="{% url 'roster:task-list' %}">back</a></p>
+
+{% endblock %}
