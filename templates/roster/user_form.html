@@ -5,17 +5,17 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="ca  rd">
-        <div class="card-header">
-          <h2>Registration</h2>
+      <div class="card shadow-sm rounded">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Registration</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body p-4">
           <form action="" method="post" class="form-horizontal">
             {% csrf_token %}
             {{ form|crispy }}
-            <div class="form-group row">
+            <div class="form-group row mt-3">
               <div class="col-sm-10 offset-sm-2">
-                <input type="submit" value="Create" class="btn btn-primary">
+                <input type="submit" value="Create" class="btn btn-primary btn-block">
               </div>
             </div>
           </form>
