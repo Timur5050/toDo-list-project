@@ -27,7 +27,7 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", 'todo-list-5q7c.onrender.com']
+ALLOWED_HOSTS = ["127.0.0.1", 'todo-list-project-0df5.onrender.com']
 
 # Application definition
 
