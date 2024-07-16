@@ -10,6 +10,7 @@ from roster.views import (
     tag_create,
     tags_list,
     task_completing_view,
+    task_deletion_view,
 )
 
 
@@ -21,6 +22,7 @@ urlpatterns = [
     path("tasks/create/", task_create_view, name="task-create"),
     path("tasks/<int:pk>/details/", task_detail_view, name="task-details"),
     path("tasks/<int:pk>/completing/", task_completing_view, name="task-completing-change"),
+    path("tasks/<int:pk>/delete/", task_deletion_view, name="task-delete"),
     path("tags/", tags_list, name="tags-list"),
     path("tags/create/", tag_create, name="tag-create"),
 ]

@@ -39,6 +39,15 @@
         <span class="badge badge-secondary">{{ task.get_priority_display }}</span>
         {% endif %}
       </div>
+      <div class="mt-2">
+        <!-- Add a delete button with confirmation -->
+        <form action="{% url 'roster:task-delete' pk=task.id %}" method="post" class="d-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this task?');">
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </form>
+      </div>
     </div>
   </li>
   {% endfor %}
