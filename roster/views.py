@@ -118,3 +118,10 @@ def task_completing_view(request: HttpRequest, pk=int) -> HttpResponse:
         task.is_completed = True
     task.save()
     return redirect(reverse("roster:task-list"))
+
+
+@login_required
+def task_deletion_view(request: HttpRequest, pk: int) -> HttpResponse:
+    task = Task.objects.get(id=pk)
+    task.delete()
+    return redirect(reverse("roster:task-list"))
