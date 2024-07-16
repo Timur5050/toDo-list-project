@@ -102,9 +102,9 @@ def task_create_view(request: HttpRequest) -> HttpResponse:
 
 
 @login_required
-def task_detail_view(request: HttpRequest, pk: int) -> HttpResponse:
+def task_detail_view(request: HttpRequest, title: str) -> HttpResponse:
     context = {
-        "task": Task.objects.get(id=pk)
+        "task": Task.objects.get(title=title)
     }
     return render(request, "roster/task_detail.html", context=context)
 
