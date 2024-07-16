@@ -1,11 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>
-  {{ task.title }}
-</h3>
-<p>{{ task.description }}</p>
-<br>
-<p><a href="{% url 'roster:task-list' %}">back</a></p>
+<style>
+    .task-container h3 {
+        color: #2c3e50;
+        font-family: 'Arial', sans-serif;
+    }
 
+    .task-container p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #34495e;
+    }
+
+    .task-container a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+    .task-container a:hover {
+        color: #2980b9;
+        text-decoration: underline;
+    }
+
+    .task-container {
+        margin-top: 50px;
+    }
+</style>
+
+<div class="task-container jumbotron">
+    <h3 class="display-4">
+      {{ task.title }}
+    </h3>
+    <p class="lead">{{ task.description }}</p>
+    <hr class="my-4">
+    <p><a class="btn btn-primary btn-lg" href="{% url 'roster:task-list' %}" role="button">Back</a></p>
+</div>
 {% endblock %}
