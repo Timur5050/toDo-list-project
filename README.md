@@ -4,7 +4,7 @@
 Welcome to our Django-based application. This project is designed to manage tasks with a streamlined user interface, providing features such as task creation, user management, and pagination. The application aims to simplify the process of task tracking and user management within an organization or personal projects.
 
 # Site is also already hosted on a free platfom, here is the link:
-[cosmodrome deployed on render](https://todo-list-project-0df5.onrender.com)
+[todo list deployed on render](https://todo-list-project-0df5.onrender.com)
 
 # Key Features
 1) Task Management
